@@ -4,6 +4,8 @@
   "private": true,
   "description": "Intentionally inaccessible static demo pages for Pa11y/WCAG training.",
   "scripts": {
+    "build": "node scripts/build-cloudflare-pages.mjs",
+    "build:cloudflare-pages": "npm run build",
     "serve": "npx http-server . -p 8080 -c-1",
     "serve:python": "python3 -m http.server 8080",
     "test:all": "pa11y-ci --config .pa11yci",
