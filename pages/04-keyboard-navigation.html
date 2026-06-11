@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>04 Keyboard and navigation failures</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../bad-ui.js" defer></script>
+</head>
+<body class="bad-focus-none">
+  <header class="site-header">
+    <h1>04 Keyboard and navigation failures</h1>
+    <p>Empty links, positive tabindex, focus suppression, and mouse-only interactions.</p>
+  </header>
+  <nav class="demo-nav" aria-label="Demo pages">
+    <a href="../index.html">Home</a>
+    <a href="all-in-one.html">All-in-one</a>
+    <a href="03-forms.html">Previous</a>
+    <a href="05-structure-tables.html">Next: structure</a>
+  </nav>
+  <main>
+    <div class="warning">Keyboard operability and focus order require manual tab testing; automated tools catch only part of this page.</div>
+
+    <section class="violation-grid">
+      <article class="violation-card">
+        <h2>Empty links</h2>
+        <p><a href="#"></a></p>
+        <p><a href="#"><img src="../assets/icon.svg" alt=""></a></p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Positive tabindex</h2>
+        <button tabindex="4">I jump ahead in the tab order</button>
+        <button tabindex="2">I jump even earlier</button>
+      </article>
+
+      <article class="violation-card">
+        <h2>Focus indicator removed</h2>
+        <p><a class="bad-no-focus" href="#">This link has no visible focus indicator</a></p>
+        <p><button class="bad-no-focus">This button also suppresses focus</button></p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Mouse-only fake button</h2>
+        <div class="fake-button" onclick="noisyClick('Only a mouse click activates this fake button.')">Checkout now</div>
+        <p>A keyboard user cannot reach or activate this control.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Role button without keyboard behavior</h2>
+        <span role="button" tabindex="0" class="fake-button" onclick="noisyClick('Keyboard Enter/Space was not implemented.')">Open menu</span>
+      </article>
+
+      <article class="violation-card">
+        <h2>Mouse-only dragging</h2>
+        <div class="drag-card" data-fake-draggable>Drag card to reorder</div>
+        <p>No keyboard alternative is provided.</p>
+      </article>
+
+      <article class="violation-card hide-until-hover">
+        <h2>Hover-only tooltip</h2>
+        <button>Hover for instructions</button>
+        <span class="tooltip">Important instructions appear only on hover.</span>
+      </article>
+
+      <article class="violation-card">
+        <h2>Skip link target missing</h2>
+        <a href="#content-that-does-not-exist">Skip to main content</a>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

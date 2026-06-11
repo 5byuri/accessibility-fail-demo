@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>03 Forms and error handling failures</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>03 Forms and error handling failures</h1>
+    <p>Unlabelled controls, incomplete instructions, invalid attributes, and inaccessible errors.</p>
+  </header>
+  <nav class="demo-nav" aria-label="Demo pages">
+    <a href="../index.html">Home</a>
+    <a href="all-in-one.html">All-in-one</a>
+    <a href="02-text-images-media.html">Previous</a>
+    <a href="04-keyboard-navigation.html">Next: keyboard</a>
+  </nav>
+  <main>
+    <div class="warning">Automated tools are good at missing labels and invalid attributes, but not at judging whether instructions and error recovery are sufficient.</div>
+
+    <form action="#" class="violation-grid">
+      <section class="violation-card">
+        <h2>Unlabelled inputs</h2>
+        <p><input type="text" placeholder="Full name"></p>
+        <p><input type="email" id="email"></p>
+        <p><textarea rows="4" cols="30"></textarea></p>
+      </section>
+
+      <section class="violation-card">
+        <h2>Bad label association</h2>
+        <label>Country</label>
+        <select>
+          <option>Choose a country</option>
+          <option>Germany</option>
+          <option>France</option>
+        </select>
+        <p>The visible label is not programmatically associated with the select.</p>
+      </section>
+
+      <section class="violation-card">
+        <h2>Fieldset without legend</h2>
+        <fieldset>
+          <input type="radio" id="basic" name="plan"><label for="basic">Basic</label>
+          <input type="radio" id="pro" name="plan"><label for="pro">Pro</label>
+        </fieldset>
+      </section>
+
+      <section class="violation-card">
+        <h2>Required by color only</h2>
+        <p><span class="bad-required-color-only">Red fields are required</span></p>
+        <label for="company">Company</label>
+        <input id="company" type="text">
+        <p>No programmatic required state is provided.</p>
+      </section>
+
+      <section class="violation-card">
+        <h2>Invalid autocomplete</h2>
+        <label for="cc">Credit card number</label>
+        <input id="cc" type="text" autocomplete="credit-cardish">
+      </section>
+
+      <section class="violation-card">
+        <h2>Empty submit button</h2>
+        <button type="submit"></button>
+      </section>
+
+      <section class="violation-card">
+        <h2>Error not associated</h2>
+        <label for="postal">Postal code</label>
+        <input id="postal" type="text" aria-invalid="true">
+        <p class="error-text">Error: postal code must contain five digits.</p>
+        <p>The error is not referenced with <span class="code-ish">aria-describedby</span>.</p>
+      </section>
+
+      <section class="violation-card">
+        <h2>CAPTCHA alternative missing</h2>
+        <label for="captcha">Type the characters from the image</label>
+        <img src="../assets/icon.svg" alt="">
+        <input id="captcha" type="text">
+      </section>
+    </form>
+  </main>
+</body>
+</html>

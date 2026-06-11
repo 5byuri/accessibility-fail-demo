@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#fff"/>
+  <line x1="70" y1="300" x2="590" y2="300" stroke="#222" stroke-width="3"/>
+  <line x1="70" y1="40" x2="70" y2="300" stroke="#222" stroke-width="3"/>
+  <rect x="130" y="140" width="60" height="160" fill="#e63946"/>
+  <rect x="270" y="90" width="60" height="210" fill="#457b9d"/>
+  <rect x="410" y="210" width="60" height="90" fill="#2a9d8f"/>
+  <text x="70" y="24" font-size="20" fill="#222">Quarterly conversion rate</text>
+</svg>

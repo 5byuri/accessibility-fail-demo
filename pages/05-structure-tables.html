@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>05 Structure, landmarks, and tables failures</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>05 Structure, landmarks, and tables failures</h1>
+    <p>Bad heading structure, lists, landmarks, and table relationships.</p>
+  </header>
+  <nav class="demo-nav" aria-label="Demo pages">
+    <a href="../index.html">Home</a>
+    <a href="all-in-one.html">All-in-one</a>
+    <a href="04-keyboard-navigation.html">Previous</a>
+    <a href="06-aria-widgets.html">Next: ARIA</a>
+  </nav>
+  <main>
+    <div class="warning">Some structure issues are subjective; automated tools should still flag empty headings, list semantics, duplicate landmarks, and some table issues.</div>
+
+    <section class="violation-grid">
+      <article class="violation-card">
+        <h2>Heading order jump</h2>
+        <h5>This jumps from h2 to h5</h5>
+        <p>Screen reader users often navigate by heading level.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2></h2>
+        <p>The heading above is empty.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Fake headings</h2>
+        <p style="font-size: 1.5rem; font-weight: 700;">Looks like a heading but is only a paragraph.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Invalid list structure</h2>
+        <ul>
+          <div>Not an li element</div>
+          <span>Also not an li element</span>
+        </ul>
+      </article>
+
+      <article class="violation-card">
+        <h2>Multiple main landmarks</h2>
+        <main>
+          <p>Nested extra main landmark inside the real main.</p>
+        </main>
+      </article>
+
+      <article class="violation-card table-wrapper">
+        <h2>Data table without header cells</h2>
+        <table>
+          <tr><td>Month</td><td>Revenue</td><td>Refunds</td></tr>
+          <tr><td>January</td><td>€1000</td><td>€20</td></tr>
+          <tr><td>February</td><td>€800</td><td>€90</td></tr>
+        </table>
+      </article>
+
+      <article class="violation-card table-wrapper">
+        <h2>Broken header reference</h2>
+        <table>
+          <tr><th id="p">Product</th><th id="q">Quantity</th></tr>
+          <tr><td headers="not-a-header">Keyboard</td><td headers="q">3</td></tr>
+        </table>
+      </article>
+
+      <article class="violation-card table-wrapper">
+        <h2>Invalid table header scope</h2>
+        <table>
+          <tr><th scope="diagonal">Name</th><th scope="col">Team</th></tr>
+          <tr><td>Ada</td><td>Research</td></tr>
+        </table>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

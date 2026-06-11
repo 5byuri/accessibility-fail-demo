@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>02 Text alternatives, images, and media failures</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>02 Text alternatives, images, and media failures</h1>
+    <p>Examples for images, icon links, SVG, canvas, frames, and time-based media.</p>
+  </header>
+  <nav class="demo-nav" aria-label="Demo pages">
+    <a href="../index.html">Home</a>
+    <a href="all-in-one.html">All-in-one</a>
+    <a href="01-document-language.html">Previous</a>
+    <a href="03-forms.html">Next: forms</a>
+  </nav>
+  <main>
+    <div class="warning">Some media/caption failures need human review. Automated tools should still catch missing image alt text, unnamed frames, empty links, and some graphics issues.</div>
+
+    <section class="violation-grid">
+      <article class="violation-card">
+        <h2>Image with no alt attribute</h2>
+        <img class="demo-img" src="../assets/photo.svg">
+        <p>Missing an <span class="code-ish">alt</span> attribute entirely.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Informational chart with empty alt</h2>
+        <img class="demo-img" src="../assets/chart.svg" alt="">
+        <p>The chart conveys information but is hidden from screen readers.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Image-only link with no accessible name</h2>
+        <a href="#"><img src="../assets/icon.svg" alt=""></a>
+        <p>The link’s only content has empty alt text.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Image submit button with no alt</h2>
+        <form action="#">
+          <input type="image" src="../assets/icon.svg">
+        </form>
+      </article>
+
+      <article class="violation-card">
+        <h2>Frame without a title</h2>
+        <iframe srcdoc="<p>Untitled embedded signup form.</p>"></iframe>
+      </article>
+
+      <article class="violation-card">
+        <h2>Inline SVG with image role but no name</h2>
+        <svg width="120" height="80" role="img" viewBox="0 0 120 80">
+          <rect width="120" height="80" fill="#eee"></rect>
+          <circle cx="60" cy="40" r="25" fill="#333"></circle>
+        </svg>
+      </article>
+
+      <article class="violation-card">
+        <h2>Canvas with no fallback</h2>
+        <canvas width="260" height="130"></canvas>
+        <p>Canvas content needs a text alternative when it conveys meaning.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Video without captions or transcript</h2>
+        <video src="../assets/missing-video.mp4" controls width="280"></video>
+        <p>This is primarily a manual WCAG check because tools cannot judge whether captions/transcripts match the media.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Audio without transcript</h2>
+        <audio src="../assets/missing-audio.mp3" controls></audio>
+        <p>Included as a manual review example.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

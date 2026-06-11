@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>All-in-one common WCAG failures</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../bad-ui.js" defer></script>
+</head>
+<body class="bad-focus-none">
+  <header class="site-header">
+    <h1>All-in-one common WCAG failures</h1>
+    <p>This page intentionally combines many common automated accessibility failures into one URL.</p>
+  </header>
+  <nav class="demo-nav" aria-label="Demo pages">
+    <a href="../index.html">Home</a>
+    <a href="01-document-language.html">01 Document</a>
+    <a href="02-text-images-media.html">02 Media</a>
+    <a href="03-forms.html">03 Forms</a>
+    <a href="04-keyboard-navigation.html">04 Keyboard</a>
+    <a href="05-structure-tables.html">05 Structure</a>
+    <a href="06-aria-widgets.html">06 ARIA</a>
+    <a href="07-visual-cognitive.html">07 Visual</a>
+    <a href="08-status-authentication.html">08 Status/auth</a>
+  </nav>
+  <main>
+    <div class="warning"><strong>Expected:</strong> Pa11y should report many errors/warnings here, especially when run with both <span class="code-ish">axe</span> and <span class="code-ish">htmlcs</span>.</div>
+
+    <section class="violation-grid">
+      <article class="violation-card">
+        <h2>Text alternatives</h2>
+        <img class="demo-img" src="../assets/chart.svg">
+        <p><a href="#"><img src="../assets/icon.svg" alt=""></a></p>
+        <input type="image" src="../assets/icon.svg">
+      </article>
+
+      <article class="violation-card">
+        <h2>Names and labels</h2>
+        <p><a href="#"></a></p>
+        <button></button>
+        <p><input type="text" placeholder="Email address"></p>
+        <p><select><option>Choose a country</option></select></p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Contrast and zoom</h2>
+        <p class="bad-low-contrast">Low contrast normal text that should be difficult to read.</p>
+        <p class="bad-low-contrast-large">Low contrast large text.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2 id="dupe">ARIA</h2>
+        <p id="dupe">Duplicate ID used by another element.</p>
+        <div role="made-up-role">Invalid ARIA role.</div>
+        <div role="checkbox" aria-checked="banana" tabindex="0">Invalid ARIA state value.</div>
+        <button aria-expanded="maybe">Bad expanded state</button>
+        <div aria-hidden="true"><a href="#">Focusable link hidden from assistive tech</a></div>
+        <button aria-labelledby="missing-label-id">Broken aria-labelledby</button>
+      </article>
+
+      <article class="violation-card">
+        <h2>Keyboard traps and focus</h2>
+        <button tabindex="9">Positive tabindex</button>
+        <div class="fake-button" onclick="noisyClick('Mouse-only fake button')">Mouse-only fake button</div>
+        <div class="drag-card" data-fake-draggable>Drag me with a mouse only</div>
+      </article>
+
+      <article class="violation-card">
+        <h2>Structure and tables</h2>
+        <h4>Heading jumps from h2 to h4</h4>
+        <h2></h2>
+        <ul><div>Invalid child of a list</div></ul>
+        <table>
+          <tr><td>Product</td><td>Price</td></tr>
+          <tr><td>Keyboard</td><td>$45</td></tr>
+        </table>
+      </article>
+
+      <article class="violation-card">
+        <h2>Frames, SVG, canvas, media</h2>
+        <iframe srcdoc="<p>Frame without accessible title</p>"></iframe>
+        <svg width="80" height="80" role="img"><circle cx="40" cy="40" r="30"></circle></svg>
+        <canvas width="120" height="60"></canvas>
+        <video src="../assets/missing-video.mp4" controls width="240"></video>
+      </article>
+
+      <article class="violation-card">
+        <h2>Manual-check examples</h2>
+        <p class="marquee-ish">Moving content without an obvious pause/stop control.</p>
+        <p class="tight-text">Text spacing is intentionally cramped and may become unreadable if users override spacing.</p>
+        <p data-silent-status>Status text will update here without a live region.</p>
+      </article>
+    </section>
+
+    <div class="footer-space"></div>
+  </main>
+  <div class="sticky-blocker">Sticky overlay that can obscure focused controls near the bottom of the page.</div>
+</body>
+</html>

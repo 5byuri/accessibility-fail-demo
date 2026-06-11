@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>06 ARIA and custom widget failures</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>06 ARIA and custom widget failures</h1>
+    <p>Bad roles, invalid states, broken labels, and hidden focusable content.</p>
+  </header>
+  <nav class="demo-nav" aria-label="Demo pages">
+    <a href="../index.html">Home</a>
+    <a href="all-in-one.html">All-in-one</a>
+    <a href="05-structure-tables.html">Previous</a>
+    <a href="07-visual-cognitive.html">Next: visual</a>
+  </nav>
+  <main>
+    <div class="warning">ARIA can make inaccessible custom UI even worse. Many of these are automatically detectable because the ARIA grammar itself is invalid.</div>
+
+    <section class="violation-grid">
+      <article class="violation-card">
+        <h2>Invalid role</h2>
+        <div role="sparklebutton">Invalid role value.</div>
+      </article>
+
+      <article class="violation-card">
+        <h2>Invalid state value</h2>
+        <div role="checkbox" aria-checked="sometimes" tabindex="0">Checkbox with invalid checked state</div>
+      </article>
+
+      <article class="violation-card">
+        <h2>Required ARIA attribute missing</h2>
+        <div role="checkbox" tabindex="0">Checkbox missing aria-checked</div>
+      </article>
+
+      <article class="violation-card">
+        <h2>ARIA attribute unsupported by role</h2>
+        <div role="heading" aria-checked="true">Heading with checkbox state</div>
+      </article>
+
+      <article class="violation-card">
+        <h2>Broken accessible name reference</h2>
+        <button aria-labelledby="ghost-label">Button with missing label reference</button>
+      </article>
+
+      <article class="violation-card">
+        <h2>Broken description reference</h2>
+        <input aria-describedby="ghost-help" type="text">
+      </article>
+
+      <article class="violation-card">
+        <h2 id="same-id">Duplicate IDs</h2>
+        <p id="same-id">This paragraph reuses the heading ID.</p>
+        <button aria-labelledby="same-id">Ambiguous label source</button>
+      </article>
+
+      <article class="violation-card">
+        <h2>Focusable content hidden from assistive tech</h2>
+        <div aria-hidden="true">
+          <a href="#">Hidden but focusable link</a>
+          <button>Hidden but focusable button</button>
+        </div>
+      </article>
+
+      <article class="violation-card">
+        <h2>Dialog without accessible name</h2>
+        <div role="dialog" aria-modal="true">
+          <p>Dialog content with no accessible dialog name.</p>
+        </div>
+      </article>
+
+      <article class="violation-card">
+        <h2>Role image without name</h2>
+        <div role="img" style="width: 120px; height: 80px; background: #ccc;"></div>
+      </article>
+
+      <article class="violation-card">
+        <h2>Bad expanded state</h2>
+        <button aria-expanded="banana">Open filters</button>
+      </article>
+
+      <article class="violation-card">
+        <h2>Listbox with bad child</h2>
+        <div role="listbox">
+          <p>Plain paragraph inside a listbox</p>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

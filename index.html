@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pa11y WCAG Violation Demo Site</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Pa11y WCAG violation demo site</h1>
+    <p>A static, intentionally inaccessible test fixture for Pa11y, Pa11y CI, axe, and HTML CodeSniffer demos.</p>
+  </header>
+  <main>
+    <div class="warning">
+      <strong>Training fixture only.</strong> These pages intentionally contain accessibility failures. Do not copy these patterns into production.
+    </div>
+
+    <h2>Run it locally</h2>
+    <p>From this folder, start a local server and scan a page:</p>
+    <pre><code>npm install
+npm run serve
+npm run test:all
+
+# or scan a single page
+npx pa11y http://localhost:8080/pages/all-in-one.html --runner axe --runner htmlcs --standard WCAG2AAA --include-warnings --include-notices</code></pre>
+
+    <h2>Demo pages</h2>
+    <div class="index-grid">
+      <a href="pages/all-in-one.html"><strong>All-in-one common failures</strong><br>One URL with many Pa11y-detectable issues.</a>
+      <a href="pages/01-document-language.html"><strong>01 Document, language, title, parsing</strong><br>Document-level failures and duplicated identifiers.</a>
+      <a href="pages/02-text-images-media.html"><strong>02 Text alternatives, images, media</strong><br>Missing alt text, unnamed frames, SVG/canvas/media examples.</a>
+      <a href="pages/03-forms.html"><strong>03 Forms and error handling</strong><br>Unlabelled controls, bad required/error patterns, invalid autocomplete.</a>
+      <a href="pages/04-keyboard-navigation.html"><strong>04 Keyboard and navigation</strong><br>Empty links, positive tabindex, mouse-only controls, focus issues.</a>
+      <a href="pages/05-structure-tables.html"><strong>05 Structure, landmarks, tables</strong><br>Heading jumps, empty headings, bad lists, bad table semantics.</a>
+      <a href="pages/06-aria-widgets.html"><strong>06 ARIA and custom widgets</strong><br>Invalid roles/states, broken labels, hidden focusable elements.</a>
+      <a href="pages/07-visual-cognitive.html"><strong>07 Visual, reflow, motion, targets</strong><br>Low contrast, disabled zoom, tiny targets, movement and reflow traps.</a>
+      <a href="pages/08-status-authentication.html"><strong>08 Status, authentication, cognitive/manual checks</strong><br>Examples that automated tools often miss or only partially detect.</a>
+      <a href="pages/good-reference.html"><strong>Good reference page</strong><br>A small mostly accessible counterpart for comparison.</a>
+    </div>
+
+    <h2>What “every WCAG violation” means here</h2>
+    <p>WCAG failures are not a finite list of HTML snippets. Many require judgment about meaning, timing, task flow, content accuracy, captions, reading order, and assistive technology behavior. This fixture is a broad violation zoo, not a legal conformance benchmark.</p>
+  </main>
+</body>
+</html>

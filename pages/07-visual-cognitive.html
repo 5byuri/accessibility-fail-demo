@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>07 Visual, reflow, motion, and target failures</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="bad-focus-none">
+  <header class="site-header">
+    <h1>07 Visual, reflow, motion, and target failures</h1>
+    <p>Low contrast, disabled zoom, tiny controls, moving text, reflow traps, and hidden focus.</p>
+  </header>
+  <nav class="demo-nav" aria-label="Demo pages">
+    <a href="../index.html">Home</a>
+    <a href="all-in-one.html">All-in-one</a>
+    <a href="06-aria-widgets.html">Previous</a>
+    <a href="08-status-authentication.html">Next: status/auth</a>
+  </nav>
+  <main>
+    <div class="warning">Contrast and viewport restrictions are often detectable. Reflow, motion, target size, and cognitive issues often require manual checks.</div>
+
+    <section class="violation-grid">
+      <article class="violation-card">
+        <h2>Insufficient contrast</h2>
+        <p class="bad-low-contrast">This normal-size text has intentionally poor foreground/background contrast.</p>
+        <p class="bad-low-contrast-large">Large text can fail too when contrast is too low.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Focus indicator suppressed</h2>
+        <p><a class="bad-no-focus" href="#">Try tabbing to this link</a></p>
+        <p><button class="bad-no-focus">Try tabbing to this button</button></p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Tiny targets</h2>
+        <button class="tiny-target" aria-label="Tiny previous">‹</button>
+        <button class="tiny-target" aria-label="Tiny next">›</button>
+      </article>
+
+      <article class="violation-card">
+        <h2>Moving content without pause</h2>
+        <p class="marquee-ish">Breaking news: this text moves continuously and has no pause, stop, or hide control.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Fixed-width reflow trap</h2>
+        <div class="fixed-wide">This 1600px-wide panel forces horizontal scrolling at narrow viewport widths.</div>
+      </article>
+
+      <article class="violation-card">
+        <h2>Text clipping under spacing changes</h2>
+        <p class="clipped-text tight-text">This box clips text if users increase line height, word spacing, letter spacing, or paragraph spacing.</p>
+      </article>
+
+      <article class="violation-card hide-until-hover">
+        <h2>Hover-only content</h2>
+        <button>Hover me</button>
+        <span class="tooltip">This help text appears only on hover and is not reliably reachable by keyboard or touch.</span>
+      </article>
+
+      <article class="violation-card">
+        <h2>Color-only status</h2>
+        <p><span style="color: #008000;">Green means approved.</span> <span style="color: #d00000;">Red means rejected.</span></p>
+        <p>No text/icon pattern distinguishes the states.</p>
+      </article>
+    </section>
+    <div class="footer-space"></div>
+  </main>
+  <div class="sticky-blocker">Sticky overlay: tab to controls near the bottom to see focus become obscured.</div>
+</body>
+</html>

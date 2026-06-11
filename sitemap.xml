@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>http://localhost:8080/index.html</loc></url>
+  <url><loc>http://localhost:8080/pages/all-in-one.html</loc></url>
+  <url><loc>http://localhost:8080/pages/01-document-language.html</loc></url>
+  <url><loc>http://localhost:8080/pages/02-text-images-media.html</loc></url>
+  <url><loc>http://localhost:8080/pages/03-forms.html</loc></url>
+  <url><loc>http://localhost:8080/pages/04-keyboard-navigation.html</loc></url>
+  <url><loc>http://localhost:8080/pages/05-structure-tables.html</loc></url>
+  <url><loc>http://localhost:8080/pages/06-aria-widgets.html</loc></url>
+  <url><loc>http://localhost:8080/pages/07-visual-cognitive.html</loc></url>
+  <url><loc>http://localhost:8080/pages/08-status-authentication.html</loc></url>
+  <url><loc>http://localhost:8080/pages/good-reference.html</loc></url>
+</urlset>

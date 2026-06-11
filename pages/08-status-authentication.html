@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>08 Status, authentication, and cognitive/manual failures</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../bad-ui.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>08 Status, authentication, and cognitive/manual failures</h1>
+    <p>Examples that often require human review: status updates, authentication burdens, redundant entry, instructions, and timing.</p>
+  </header>
+  <nav class="demo-nav" aria-label="Demo pages">
+    <a href="../index.html">Home</a>
+    <a href="all-in-one.html">All-in-one</a>
+    <a href="07-visual-cognitive.html">Previous</a>
+    <a href="good-reference.html">Good reference</a>
+  </nav>
+  <main>
+    <div class="warning">This page is intentionally heavy on manual checks. Pa11y may report only a subset; that is the point of this page.</div>
+
+    <section class="violation-grid">
+      <article class="violation-card">
+        <h2>Status update not announced</h2>
+        <button type="button" onclick="document.querySelector('[data-silent-status]').textContent='Profile saved, but not announced.'">Save profile</button>
+        <p data-silent-status>Nothing saved yet.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Timeout warning with no control</h2>
+        <p>Your session will expire in <strong>30 seconds</strong>.</p>
+        <p>No accessible way to extend, turn off, or adjust the time limit is provided.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Redundant entry</h2>
+        <form action="#">
+          <label for="ship-name">Shipping name</label>
+          <input id="ship-name" type="text">
+          <label for="bill-name">Billing name</label>
+          <input id="bill-name" type="text">
+          <p>Users must re-enter information already provided. There is no “same as shipping” option.</p>
+        </form>
+      </article>
+
+      <article class="violation-card">
+        <h2>Authentication puzzle</h2>
+        <p>To sign in, solve this memory puzzle: “What were the 4th, 9th, and 17th characters of the code you saw on the previous screen?”</p>
+        <label for="puzzle">Answer</label>
+        <input id="puzzle" type="text">
+      </article>
+
+      <article class="violation-card">
+        <h2>Instructions after the control</h2>
+        <input id="password" type="password">
+        <label for="password">Password</label>
+        <p>Password must be 16 characters, include a symbol, and must not contain dictionary words.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Error message depends only on color</h2>
+        <label for="promo">Promo code</label>
+        <input id="promo" type="text" aria-invalid="true">
+        <p><span style="color: #d00000;">This field is red.</span></p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Language change not marked</h2>
+        <p>The paragraph changes language without markup: Ceci est une phrase en français.</p>
+      </article>
+
+      <article class="violation-card">
+        <h2>Ambiguous link purpose</h2>
+        <p>Annual report <a href="#">read more</a></p>
+        <p>Security update <a href="#">read more</a></p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

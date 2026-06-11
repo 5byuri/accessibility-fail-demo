@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Good reference page</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Good reference page</h1>
+    <p>A small mostly accessible page for comparing Pa11y output against the intentionally bad pages.</p>
+  </header>
+  <nav class="demo-nav" aria-label="Demo pages">
+    <a href="../index.html">Home</a>
+    <a href="all-in-one.html">All-in-one</a>
+    <a href="08-status-authentication.html">Previous</a>
+  </nav>
+  <main id="main">
+    <section class="violation-grid">
+      <article class="violation-card">
+        <h2>Image with text alternative</h2>
+        <img class="demo-img" src="../assets/photo.svg" alt="Illustration of mountains, grass, and a sun.">
+      </article>
+
+      <article class="violation-card">
+        <h2>Labelled form</h2>
+        <form action="#">
+          <p>
+            <label for="good-email">Email address</label><br>
+            <input id="good-email" name="email" type="email" autocomplete="email" required aria-describedby="email-help">
+          </p>
+          <p id="email-help">Use a work or personal email address.</p>
+          <button type="submit">Subscribe</button>
+        </form>
+      </article>
+
+      <article class="violation-card table-wrapper">
+        <h2>Simple accessible table</h2>
+        <table>
+          <caption>Sample stock levels</caption>
+          <thead>
+            <tr><th scope="col">Item</th><th scope="col">Stock</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Keyboard</td><td>12</td></tr>
+            <tr><td>Mouse</td><td>18</td></tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

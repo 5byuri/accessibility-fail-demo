@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h2>01 Document, language, title, parsing</h2>
+    <p>This page intentionally omits the document title and HTML language attribute.</p>
+  </header>
+  <nav class="demo-nav" aria-label="Demo pages">
+    <a href="../index.html">Home</a>
+    <a href="all-in-one.html">All-in-one</a>
+    <a href="02-text-images-media.html">Next: media</a>
+  </nav>
+  <main id="duplicate-main-id">
+    <div class="warning">Expected categories: missing/invalid document language, missing title, disabled zoom, duplicated IDs, heading order issues.</div>
+
+    <h3>Heading starts too deep</h3>
+    <p id="repeated-id">First element with a repeated ID.</p>
+    <p id="repeated-id">Second element with the same repeated ID.</p>
+
+    <section class="violation-grid">
+      <article class="violation-card">
+        <h2>Broken references</h2>
+        <button aria-describedby="description-that-does-not-exist">Continue</button>
+        <p>The button references an element ID that is not present.</p>
+      </article>
+      <article class="violation-card">
+        <h2>Landmark confusion</h2>
+        <main id="duplicate-main-id">
+          <p>Nested and duplicated main landmark.</p>
+        </main>
+      </article>
+      <article class="violation-card">
+        <h2>Empty document-ish content</h2>
+        <h1></h1>
+        <p>An empty heading gives users no useful page or section label.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
